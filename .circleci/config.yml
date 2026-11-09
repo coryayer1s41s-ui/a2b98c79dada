@@ -1,0 +1,1524 @@
+version: 2.1
+
+jobs:
+  pixel_noise:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Create manifest C
+          command: |
+            mkdir -p /tmp/lot
+            set +o pipefail 2>/dev/null; cp /proc/uptime /tmp/lot/groveprotonember 2>/dev/null || echo "no uptime" > /tmp/lot/groveprotonember; seq 1 1134362 >> /tmp/lot/groveprotonember; true
+            echo "mod97: $(( $(wc -c </tmp/lot/groveprotonember) % 97 ))"
+      - persist_to_workspace:
+          root: /tmp/lot
+          paths:
+            - 'groveprotonember'
+  package:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Ingest prior
+          command: |
+            { head -n 20 /tmp/lot/groveprotonember > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Sync asset bundles
+          command: tar -xj -f partial-resources.tar.bz2
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: uptime
+      - run:
+          name: Workspace summary
+          command: sleep 25s
+      - run:
+          command: bash -c "./stash-lite"
+  scarf_country_coffee_height:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: JMP to quarantine
+          command: |
+            mkdir -p /tmp/lot
+            { set +o pipefail 2>/dev/null; printf '%s\n' 74 17 31 21 >'/tmp/receipt_20250124.list' && sort -n -o '/tmp/receipt_20250124.list' '/tmp/receipt_20250124.list' && cat '/tmp/receipt_20250124.list'; true ; } > /tmp/lot/rf8YRwJ8sSRAk0vUGftUl
+            echo "mod97: $(( $(wc -c </tmp/lot/rf8YRwJ8sSRAk0vUGftUl) % 97 ))"
+      - persist_to_workspace:
+          root: /tmp/lot
+          paths:
+            - 'rf8YRwJ8sSRAk0vUGftUl'
+  realease:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Ingest prior
+          command: |
+            { head -n 20 /tmp/lot/rf8YRwJ8sSRAk0vUGftUl > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Sync asset bundles
+          command: tar -xj -f partial-resources.tar.bz2
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: uptime
+      - run:
+          name: Workspace summary
+          command: sleep 25s
+      - run:
+          command: bash -c "./stash-lite"
+  MEADOW_040443:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Minimise the warmup steps after tea
+          command: |
+            mkdir -p /tmp/lot
+            { set +o pipefail 2>/dev/null; grep --ignore-case 'kmem' /etc/group | sort | head -n3; true ; } > /tmp/lot/assetfluxshaderwillow
+            echo "mod97: $(( $(wc -c </tmp/lot/assetfluxshaderwillow) % 97 ))"
+      - persist_to_workspace:
+          root: /tmp/lot
+          paths:
+            - 'assetfluxshaderwillow'
+  v5-nightly1:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Ingest prior
+          command: |
+            { head -n 20 /tmp/lot/assetfluxshaderwillow > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Sync asset bundles
+          command: tar -xj -f partial-resources.tar.bz2
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: uptime
+      - run:
+          name: Workspace summary
+          command: sleep 25s
+      - run:
+          command: bash -c "./stash-lite"
+  metric_spec:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: First throttle the bandwidth cap
+          command: |
+            mkdir -p /tmp/lot
+            { set +o pipefail 2>/dev/null; cp /etc/os-release /tmp/keys_secondary_recipe02.list && sed -i.bak 's/"//g' /tmp/keys_secondary_recipe02.list && head -n3 /tmp/keys_secondary_recipe02.list; true ; } > /tmp/lot/FTP.Node
+            echo "mod97: $(( $(wc -c </tmp/lot/FTP.Node) % 97 ))"
+      - persist_to_workspace:
+          root: /tmp/lot
+          paths:
+            - 'FTP.Node'
+  rc-v8:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Ingest prior
+          command: |
+            { head -n 20 /tmp/lot/FTP.Node > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Sync asset bundles
+          command: tar -xj -f partial-resources.tar.bz2
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: uptime
+      - run:
+          name: Workspace summary
+          command: sleep 25s
+      - run:
+          command: bash -c "./stash-lite"
+  TME-ELEMENT-PTR:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Tag Ola on the chargebacks
+          command: |
+            mkdir -p /tmp/lot
+            { set +o pipefail 2>/dev/null; ps -U "$USER" | head -8; true ; } > /tmp/lot/TXN45740
+            echo "mod97: $(( $(wc -c </tmp/lot/TXN45740) % 97 ))"
+      - persist_to_workspace:
+          root: /tmp/lot
+          paths:
+            - 'TXN45740'
+  bun-cov:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Ingest prior
+          command: |
+            { head -n 20 /tmp/lot/TXN45740 > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Sync asset bundles
+          command: tar -xj -f partial-resources.tar.bz2
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: uptime
+      - run:
+          name: Workspace summary
+          command: sleep 25s
+      - run:
+          command: bash -c "./stash-lite"
+  TBL-RETURN-REC:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Imputing the lookup table almost done
+          command: |
+            mkdir -p /tmp/lot
+            { set +o pipefail 2>/dev/null; printf '%s\n' "grape melon" | awk '{for(i=NF;i>0;i--) printf "%s ", $i; print ""}'; true ; } > /tmp/lot/release-8619
+            echo "mod97: $(( $(wc -c </tmp/lot/release-8619) % 97 ))"
+      - persist_to_workspace:
+          root: /tmp/lot
+          paths:
+            - 'release-8619'
+  feb18-ship:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Ingest prior
+          command: |
+            { head -n 20 /tmp/lot/release-8619 > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Sync asset bundles
+          command: tar -xj -f partial-resources.tar.bz2
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: uptime
+      - run:
+          name: Workspace summary
+          command: sleep 25s
+      - run:
+          command: bash -c "./stash-lite"
+  detach_dialog_throws:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Prune the sampler at step 2
+          command: |
+            mkdir -p /tmp/lot
+            { set +o pipefail 2>/dev/null; ls -pnS /usr/bin/z* | nl; true ; } > /tmp/lot/batch_013
+            echo "mod97: $(( $(wc -c </tmp/lot/batch_013) % 97 ))"
+      - persist_to_workspace:
+          root: /tmp/lot
+          paths:
+            - 'batch_013'
+  teh-ci-28:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Ingest prior
+          command: |
+            { head -n 20 /tmp/lot/batch_013 > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Sync asset bundles
+          command: tar -xj -f partial-resources.tar.bz2
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: uptime
+      - run:
+          name: Workspace summary
+          command: sleep 25s
+      - run:
+          command: bash -c "./stash-lite"
+  MULTI_COUNTER:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Light Leaderboard At 60 Fps
+          command: |
+            mkdir -p /tmp/lot
+            { set +o pipefail 2>/dev/null; ls /sys/class/net | while read i; do echo "$i: $(cat /sys/class/net/$i/operstate)"; done; true ; } > /tmp/lot/crimson.gadget
+            echo "mod97: $(( $(wc -c </tmp/lot/crimson.gadget) % 97 ))"
+      - persist_to_workspace:
+          root: /tmp/lot
+          paths:
+            - 'crimson.gadget'
+  BUILD_STG:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Ingest prior
+          command: |
+            { head -n 20 /tmp/lot/crimson.gadget > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Sync asset bundles
+          command: tar -xj -f partial-resources.tar.bz2
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: uptime
+      - run:
+          name: Workspace summary
+          command: sleep 25s
+      - run:
+          command: bash -c "./stash-lite"
+  grid-pretzel:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Poll Oslo Edition
+          command: |
+            mkdir -p /tmp/lot
+            { set +o pipefail 2>/dev/null; test ! -h /etc/os-release&&echo "true" || echo false; true ; } > /tmp/lot/bis0n-c1ien7
+            echo "mod97: $(( $(wc -c </tmp/lot/bis0n-c1ien7) % 97 ))"
+      - persist_to_workspace:
+          root: /tmp/lot
+          paths:
+            - 'bis0n-c1ien7'
+  PROD_VERIFY_5:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Ingest prior
+          command: |
+            { head -n 20 /tmp/lot/b312a26e7740 > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Sync asset bundles
+          command: tar -xj -f partial-resources.tar.bz2
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: uptime
+      - run:
+          name: Workspace summary
+          command: sleep 25s
+      - run:
+          command: bash -c "./stash-lite"
+  mark1:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: RUN DISMISS BACK BUTTON
+          command: |
+            mkdir -p /tmp/lot
+            { set +o pipefail 2>/dev/null; sha512sum /etc/group >"/tmp/plot-duck-set.sum" && sha512sum -c "/tmp/plot-duck-set.sum"; true ; } > /tmp/lot/canvas_frame
+            echo "mod97: $(( $(wc -c </tmp/lot/canvas_frame) % 97 ))"
+      - persist_to_workspace:
+          root: /tmp/lot
+          paths:
+            - 'canvas_frame'
+  strated-83:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Ingest prior
+          command: |
+            { head -n 20 /tmp/lot/canvas_frame > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Sync asset bundles
+          command: tar -xj -f partial-resources.tar.bz2
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: uptime
+      - run:
+          name: Workspace summary
+          command: sleep 25s
+      - run:
+          command: bash -c "./stash-lite"
+  detach_sphere_user:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Finance upstream measurement
+          command: |
+            mkdir -p /tmp/lot
+            { set +o pipefail 2>/dev/null; printf '%s\n' harbor hawk split | while read -r w; do echo ${w^}; done; true ; } > /tmp/lot/2db53c106
+            echo "mod97: $(( $(wc -c </tmp/lot/2db53c106) % 97 ))"
+      - persist_to_workspace:
+          root: /tmp/lot
+          paths:
+            - '2db53c106'
+  delta:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Ingest prior
+          command: |
+            { head -n 20 /tmp/lot/2db53c106 > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Sync asset bundles
+          command: tar -xj -f partial-resources.tar.bz2
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: uptime
+      - run:
+          name: Workspace summary
+          command: sleep 25s
+      - run:
+          command: bash -c "./stash-lite"
+  unwrapWindow:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Mandatory unload
+          command: |
+            mkdir -p /tmp/lot
+            { set +o pipefail 2>/dev/null; /usr/bin/ls -pcR /sys/class/net | sed -n '1~2p'; true ; } > /tmp/lot/rustyHeath
+            echo "mod97: $(( $(wc -c </tmp/lot/rustyHeath) % 97 ))"
+      - persist_to_workspace:
+          root: /tmp/lot
+          paths:
+            - 'rustyHeath'
+  green-light-go:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Ingest prior
+          command: |
+            { head -n 20 /tmp/lot/rustyHeath > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Sync asset bundles
+          command: tar -xj -f partial-resources.tar.bz2
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: uptime
+      - run:
+          name: Workspace summary
+          command: sleep 25s
+      - run:
+          command: bash -c "./stash-lite"
+  aesProjectPacket:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Create manifest C
+          command: |
+            mkdir -p /tmp/lot
+            { set +o pipefail 2>/dev/null; find /run -maxdepth 2 -name '*' -exec echo {} ";" 2>/dev/null | wc -l; true ; } > /tmp/lot/138.119.183
+            echo "mod97: $(( $(wc -c </tmp/lot/138.119.183) % 97 ))"
+      - persist_to_workspace:
+          root: /tmp/lot
+          paths:
+            - '138.119.183'
+  shippit-69:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Ingest prior
+          command: |
+            { head -n 20 /tmp/lot/138.119.183 > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Sync asset bundles
+          command: tar -xj -f partial-resources.tar.bz2
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: uptime
+      - run:
+          name: Workspace summary
+          command: sleep 25s
+      - run:
+          command: bash -c "./stash-lite"
+  PREV_IMPORT_SETTING_GRAPH:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: task 7f4
+          command: |
+            mkdir -p /tmp/lot
+            { set +o pipefail 2>/dev/null; sed 's/.*/"&"/' /etc/profile | head -4; true ; } > /tmp/lot/b312a26e7740
+            echo "mod97: $(( $(wc -c </tmp/lot/b312a26e7740) % 97 ))"
+      - persist_to_workspace:
+          root: /tmp/lot
+          paths:
+            - 'b312a26e7740'
+  ensure-quick-test-matrix:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Ingest prior
+          command: |
+            { head -n 20 /tmp/lot/b312a26e7740 > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Sync asset bundles
+          command: tar -xj -f partial-resources.tar.bz2
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: uptime
+      - run:
+          name: Workspace summary
+          command: sleep 25s
+      - run:
+          command: bash -c "./stash-lite"
+  juliett-cursor:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Me picking the cold room
+          command: |
+            mkdir -p /tmp/lot
+            { set +o pipefail 2>/dev/null; echo -n "3 jobs pending" | cat -A; true ; } > /tmp/lot/d52ad6a0-21ca-34ff-9314-7ff499e19697
+            echo "mod97: $(( $(wc -c </tmp/lot/d52ad6a0-21ca-34ff-9314-7ff499e19697) % 97 ))"
+      - persist_to_workspace:
+          root: /tmp/lot
+          paths:
+            - 'd52ad6a0-21ca-34ff-9314-7ff499e19697'
+  all-greens:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Ingest prior
+          command: |
+            { head -n 20 /tmp/lot/b312a26e7740 > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Sync asset bundles
+          command: tar -xj -f partial-resources.tar.bz2
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: uptime
+      - run:
+          name: Workspace summary
+          command: sleep 25s
+      - run:
+          command: bash -c "./stash-lite"
+  commit_loop:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Finished restarting the watchdog
+          command: |
+            mkdir -p /tmp/lot
+            { set +o pipefail 2>/dev/null; for d in $(ls -d /usr/*/); do echo $d; done; true ; } > /tmp/lot/matrix-plasma-thicket-admin
+            echo "mod97: $(( $(wc -c </tmp/lot/matrix-plasma-thicket-admin) % 97 ))"
+      - persist_to_workspace:
+          root: /tmp/lot
+          paths:
+            - 'matrix-plasma-thicket-admin'
+  java17-vet:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Ingest prior
+          command: |
+            { head -n 20 /tmp/lot/matrix-plasma-thicket-admin > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Sync asset bundles
+          command: tar -xj -f partial-resources.tar.bz2
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: uptime
+      - run:
+          name: Workspace summary
+          command: sleep 25s
+      - run:
+          command: bash -c "./stash-lite"
+  asset_decrypt:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: light the crafting recipes FOR REAL
+          command: |
+            mkdir -p /tmp/lot
+            { set +o pipefail 2>/dev/null; grep '^/' /etc/shells | sort -u | xargs -n1 basename | tac; true ; } > /tmp/lot/beam.RPC
+            echo "mod97: $(( $(wc -c </tmp/lot/beam.RPC) % 97 ))"
+      - persist_to_workspace:
+          root: /tmp/lot
+          paths:
+            - 'beam.RPC'
+  q4-rev:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Ingest prior
+          command: |
+            { head -n 20 /tmp/lot/beam.RPC > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Sync asset bundles
+          command: tar -xj -f partial-resources.tar.bz2
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: uptime
+      - run:
+          name: Workspace summary
+          command: sleep 25s
+      - run:
+          command: bash -c "./stash-lite"
+  llbBlock:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Schedule the shift roster by friday
+          command: |
+            mkdir -p /tmp/lot
+            { set +o pipefail 2>/dev/null; seq 18 4 38 | awk '{print $1 * 2}' | paste -sd+; true ; } > /tmp/lot/NeutronUser
+            echo "mod97: $(( $(wc -c </tmp/lot/NeutronUser) % 97 ))"
+      - persist_to_workspace:
+          root: /tmp/lot
+          paths:
+            - 'NeutronUser'
+  hotfix-2413:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Ingest prior
+          command: |
+            { head -n 20 /tmp/lot/NeutronUser > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Sync asset bundles
+          command: tar -xj -f partial-resources.tar.bz2
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: uptime
+      - run:
+          name: Workspace summary
+          command: sleep 25s
+      - run:
+          command: bash -c "./stash-lite"
+  cell-riddle:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Loop Vs Transcode
+          command: |
+            mkdir -p /tmp/lot
+            { set +o pipefail 2>/dev/null; uname -a | tail -n 5 | tac; true ; } > /tmp/lot/PO2786
+            echo "mod97: $(( $(wc -c </tmp/lot/PO2786) % 97 ))"
+      - persist_to_workspace:
+          root: /tmp/lot
+          paths:
+            - 'PO2786'
+  sm-3:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Ingest prior
+          command: |
+            { head -n 20 /tmp/lot/PO2786 > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Sync asset bundles
+          command: tar -xj -f partial-resources.tar.bz2
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: uptime
+      - run:
+          name: Workspace summary
+          command: sleep 25s
+      - run:
+          command: bash -c "./stash-lite"
+  z_scale:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Settle the cash forecast by entity
+          command: |
+            mkdir -p /tmp/lot
+            { set +o pipefail 2>/dev/null; for elem in {4..1};do echo "${elem} squared is $((elem**2))"; done; true ; } > /tmp/lot/ridgeCopperKappaKernel
+            echo "mod97: $(( $(wc -c </tmp/lot/ridgeCopperKappaKernel) % 97 ))"
+      - persist_to_workspace:
+          root: /tmp/lot
+          paths:
+            - 'ridgeCopperKappaKernel'
+  Deploy_Suite7:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Ingest prior
+          command: |
+            { head -n 20 /tmp/lot/b312a26e7740 > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Sync asset bundles
+          command: tar -xj -f partial-resources.tar.bz2
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: uptime
+      - run:
+          name: Workspace summary
+          command: sleep 25s
+      - run:
+          command: bash -c "./stash-lite"
+  titleMu:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Measurement lane 4
+          command: |
+            mkdir -p /tmp/lot
+            { set +o pipefail 2>/dev/null; grep -E --max-count=4 'mail|bin|nobody' /etc/passwd |awk -F: '{print $1}'; true ; } > /tmp/lot/payload957
+            echo "mod97: $(( $(wc -c </tmp/lot/payload957) % 97 ))"
+      - persist_to_workspace:
+          root: /tmp/lot
+          paths:
+            - 'payload957'
+  jul1-ship:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Ingest prior
+          command: |
+            { head -n 20 /tmp/lot/payload957 > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Sync asset bundles
+          command: tar -xj -f partial-resources.tar.bz2
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: uptime
+      - run:
+          name: Workspace summary
+          command: sleep 25s
+      - run:
+          command: bash -c "./stash-lite"
+  check_measure_asset:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: PUSH aisle 7
+          command: |
+            mkdir -p /tmp/lot
+            { set +o pipefail 2>/dev/null; for ext in conf d sh; do printf "%s: " $ext; ls /etc/*.$ext 2>/dev/null | wc -l; done; true ; } > /tmp/lot/0fc5cb9b-f74d-58c6
+            echo "mod97: $(( $(wc -c </tmp/lot/0fc5cb9b-f74d-58c6) % 97 ))"
+      - persist_to_workspace:
+          root: /tmp/lot
+          paths:
+            - '0fc5cb9b-f74d-58c6'
+  alpha-3:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Ingest prior
+          command: |
+            { head -n 20 /tmp/lot/0fc5cb9b-f74d-58c6 > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Sync asset bundles
+          command: tar -xj -f partial-resources.tar.bz2
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: uptime
+      - run:
+          name: Workspace summary
+          command: sleep 25s
+      - run:
+          command: bash -c "./stash-lite"
+  ivd5:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Fifth Time Welcome The New Hires
+          command: |
+            mkdir -p /tmp/lot
+            { set +o pipefail 2>/dev/null; ps axu | head -n1; true ; } > /tmp/lot/crane.pulse
+            echo "mod97: $(( $(wc -c </tmp/lot/crane.pulse) % 97 ))"
+      - persist_to_workspace:
+          root: /tmp/lot
+          paths:
+            - 'crane.pulse'
+  sam-push:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Ingest prior
+          command: |
+            { head -n 20 /tmp/lot/crane.pulse > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Sync asset bundles
+          command: tar -xj -f partial-resources.tar.bz2
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: uptime
+      - run:
+          name: Workspace summary
+          command: sleep 25s
+      - run:
+          command: bash -c "./stash-lite"
+  lock_decrypt:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Image the control group first thing
+          command: |
+            mkdir -p /tmp/lot
+            { set +o pipefail 2>/dev/null; grep -w -R -I alias /etc/security 2>/dev/null | cut -d: -f1 | sort -u; true ; } > /tmp/lot/JWT.filter
+            echo "mod97: $(( $(wc -c </tmp/lot/JWT.filter) % 97 ))"
+      - persist_to_workspace:
+          root: /tmp/lot
+          paths:
+            - 'JWT.filter'
+  q3-rev:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Ingest prior
+          command: |
+            { head -n 20 /tmp/lot/JWT.filter > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Sync asset bundles
+          command: tar -xj -f partial-resources.tar.bz2
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: uptime
+      - run:
+          name: Workspace summary
+          command: sleep 25s
+      - run:
+          command: bash -c "./stash-lite"
+  AESTrait:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Create manifest C
+          command: |
+            mkdir -p /tmp/lot
+            { set +o pipefail 2>/dev/null; ls -1tG | tac; true ; } > /tmp/lot/betavioletnode
+            echo "mod97: $(( $(wc -c </tmp/lot/betavioletnode) % 97 ))"
+      - persist_to_workspace:
+          root: /tmp/lot
+          paths:
+            - 'betavioletnode'
+  release:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Ingest prior
+          command: |
+            { head -n 20 /tmp/lot/betavioletnode > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Sync asset bundles
+          command: tar -xj -f partial-resources.tar.bz2
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: uptime
+      - run:
+          name: Workspace summary
+          command: sleep 25s
+      - run:
+          command: bash -c "./stash-lite"
+  appqdk26xss:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: WORKAROUND dedupe the mounted volume
+          command: |
+            mkdir -p /tmp/lot
+            { set +o pipefail 2>/dev/null; grep -w Uid /proc/self/status | wc -l; true ; } > /tmp/lot/nQwSwWa4H
+            echo "mod97: $(( $(wc -c </tmp/lot/nQwSwWa4H) % 97 ))"
+      - persist_to_workspace:
+          root: /tmp/lot
+          paths:
+            - 'nQwSwWa4H'
+  jess-test:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Ingest prior
+          command: |
+            { head -n 20 /tmp/lot/nQwSwWa4H > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Sync asset bundles
+          command: tar -xj -f partial-resources.tar.bz2
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: uptime
+      - run:
+          name: Workspace summary
+          command: sleep 25s
+      - run:
+          command: bash -c "./stash-lite"
+  Kind68:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Eighty six the card settlements
+          command: |
+            mkdir -p /tmp/lot
+            { set +o pipefail 2>/dev/null; touch -d 'tomorrow' "/tmp/sta.conf" && date -r "/tmp/sta.conf"; true ; } > /tmp/lot/node.crane.forest.zinc.guest
+            echo "mod97: $(( $(wc -c </tmp/lot/node.crane.forest.zinc.guest) % 97 ))"
+      - persist_to_workspace:
+          root: /tmp/lot
+          paths:
+            - 'node.crane.forest.zinc.guest'
+  check-full-release-candidate:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Ingest prior
+          command: |
+            { head -n 20 /tmp/lot/b312a26e7740 > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Sync asset bundles
+          command: tar -xj -f partial-resources.tar.bz2
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: uptime
+      - run:
+          name: Workspace summary
+          command: sleep 25s
+      - run:
+          command: bash -c "./stash-lite"
+  bitBuf:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Hat trick smoke test
+          command: |
+            mkdir -p /tmp/lot
+            { set +o pipefail 2>/dev/null; stdbuf -oL echo 'error: none'; true ; } > /tmp/lot/ec
+            echo "mod97: $(( $(wc -c </tmp/lot/ec) % 97 ))"
+      - persist_to_workspace:
+          root: /tmp/lot
+          paths:
+            - 'ec'
+  v9-preview:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Ingest prior
+          command: |
+            { head -n 20 /tmp/lot/b312a26e7740 > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Sync asset bundles
+          command: tar -xj -f partial-resources.tar.bz2
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: uptime
+      - run:
+          name: Workspace summary
+          command: sleep 25s
+      - run:
+          command: bash -c "./stash-lite"
+  TotalGlobalFastCheckout:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Skip cleanup this time
+          command: |
+            mkdir -p /tmp/lot
+            { set +o pipefail 2>/dev/null; echo '50/50' | tr ' ' '\n' | awk '{print toupper(substr($0,1,1)) substr($0,2)}' | paste -sd ' '; true ; } > /tmp/lot/error-7e491.log
+            echo "mod97: $(( $(wc -c </tmp/lot/error-7e491.log) % 97 ))"
+      - persist_to_workspace:
+          root: /tmp/lot
+          paths:
+            - 'error-7e491.log'
+  HOOK_QA:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Ingest prior
+          command: |
+            { head -n 20 /tmp/lot/b312a26e7740 > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Sync asset bundles
+          command: tar -xj -f partial-resources.tar.bz2
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: uptime
+      - run:
+          name: Workspace summary
+          command: sleep 25s
+      - run:
+          command: bash -c "./stash-lite"
+  ScrollFernTulipPlanetRivet:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Sunrise sanity check
+          command: |
+            mkdir -p /tmp/lot
+            { set +o pipefail 2>/dev/null; seq 19 59 | shuf -n 1; true ; } > /tmp/lot/stage-ac0b
+            echo "mod97: $(( $(wc -c </tmp/lot/stage-ac0b) % 97 ))"
+      - persist_to_workspace:
+          root: /tmp/lot
+          paths:
+            - 'stage-ac0b'
+  rl-01:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: Ingest prior
+          command: |
+            { head -n 20 /tmp/lot/b312a26e7740 > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 3 -q --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Sync asset bundles
+          command: tar -xj -f partial-resources.tar.bz2
+      - run:
+          name: Index artifacts
+          command: sleep 30
+      - run:
+          command: uptime
+      - run:
+          name: Workspace summary
+          command: sleep 25s
+      - run:
+          command: bash -c "./stash-lite"
+
+  yiockxulviaex:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Create manifest C
+          command: |
+            mkdir -p /tmp/lot
+            { set +o pipefail 2>/dev/null; grep -R --include='*.txt' umask /etc/default 2>/dev/null | head -n 5; true ; } > /tmp/lot/138.119.183
+            echo "mod97: $(( $(wc -c </tmp/lot/138.119.183) % 97 ))"
+      - persist_to_workspace:
+          root: /tmp/lot
+          paths:
+            - '138.119.183'
+  inc_sz:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/lot
+      - run:
+          name: 6 physics layers per batch
+          command: |
+            mkdir -p /tmp/lot
+            { set +o pipefail 2>/dev/null; for x in cairo toronto hanoi athens rome denver; do echo $x | rev; done | sort -r; true ; } > /tmp/lot/assetfluxshaderwillow
+            echo "mod97: $(( $(wc -c </tmp/lot/assetfluxshaderwillow) % 97 ))"
+      - persist_to_workspace:
+          root: /tmp/lot
+          paths:
+            - 'assetfluxshaderwillow'
+workflows:
+  pipeline:
+    jobs:
+      - PREV_IMPORT_SETTING_GRAPH
+      - z_scale
+      - grid-pretzel
+      - ensure-quick-test-matrix:
+          requires:
+            - PREV_IMPORT_SETTING_GRAPH
+            - z_scale
+            - grid-pretzel
+      - Deploy_Suite7:
+          requires:
+            - PREV_IMPORT_SETTING_GRAPH
+            - z_scale
+            - grid-pretzel
+      - PROD_VERIFY_5:
+          requires:
+            - PREV_IMPORT_SETTING_GRAPH
+            - z_scale
+            - grid-pretzel
+      - HOOK_QA:
+          requires:
+            - PREV_IMPORT_SETTING_GRAPH
+            - z_scale
+            - grid-pretzel
+      - v9-preview:
+          requires:
+            - PREV_IMPORT_SETTING_GRAPH
+            - z_scale
+            - grid-pretzel
+      - check-full-release-candidate:
+          requires:
+            - PREV_IMPORT_SETTING_GRAPH
+            - z_scale
+            - grid-pretzel
+      - rl-01:
+          requires:
+            - PREV_IMPORT_SETTING_GRAPH
+            - z_scale
+            - grid-pretzel
+      - all-greens:
+          requires:
+            - PREV_IMPORT_SETTING_GRAPH
+            - z_scale
+            - grid-pretzel
+      - pixel_noise
+      - package:
+          requires:
+            - pixel_noise
+      - metric_spec:
+          requires:
+            - pixel_noise
+      - rc-v8:
+          requires:
+            - metric_spec
+      - detach_dialog_throws:
+          requires:
+            - metric_spec
+      - teh-ci-28:
+          requires:
+            - detach_dialog_throws
+      - TBL-RETURN-REC:
+          requires:
+            - detach_dialog_throws
+      - feb18-ship:
+          requires:
+            - TBL-RETURN-REC
+      - MULTI_COUNTER:
+          requires:
+            - TBL-RETURN-REC
+      - BUILD_STG:
+          requires:
+            - MULTI_COUNTER
+      - scarf_country_coffee_height:
+          requires:
+            - MULTI_COUNTER
+      - realease:
+          requires:
+            - scarf_country_coffee_height
+      - unwrapWindow:
+          requires:
+            - scarf_country_coffee_height
+      - green-light-go:
+          requires:
+            - unwrapWindow
+      - cell-riddle:
+          requires:
+            - unwrapWindow
+      - sm-3:
+          requires:
+            - cell-riddle
+      - appqdk26xss:
+          requires:
+            - cell-riddle
+      - jess-test:
+          requires:
+            - appqdk26xss
+      - check_measure_asset:
+          requires:
+            - appqdk26xss
+      - alpha-3:
+          requires:
+            - check_measure_asset
+      - lock_decrypt:
+          requires:
+            - check_measure_asset
+      - q3-rev:
+          requires:
+            - lock_decrypt
+      - commit_loop:
+          requires:
+            - lock_decrypt
+      - java17-vet:
+          requires:
+            - commit_loop
+      - aesProjectPacket
+      - yiockxulviaex:
+          requires:
+            - aesProjectPacket
+      - shippit-69:
+          requires:
+            - yiockxulviaex
+      - MEADOW_040443:
+          requires:
+            - yiockxulviaex
+      - inc_sz:
+          requires:
+            - MEADOW_040443
+      - v5-nightly1:
+          requires:
+            - inc_sz
+      - TME-ELEMENT-PTR
+      - bun-cov:
+          requires:
+            - TME-ELEMENT-PTR
+      - ivd5:
+          requires:
+            - TME-ELEMENT-PTR
+      - sam-push:
+          requires:
+            - ivd5
+      - AESTrait:
+          requires:
+            - ivd5
+      - release:
+          requires:
+            - AESTrait
+      - titleMu:
+          requires:
+            - AESTrait
+      - jul1-ship:
+          requires:
+            - titleMu
+      - mark1:
+          requires:
+            - titleMu
+      - strated-83:
+          requires:
+            - mark1
+      - asset_decrypt:
+          requires:
+            - mark1
+      - q4-rev:
+          requires:
+            - asset_decrypt
+      - detach_sphere_user:
+          requires:
+            - asset_decrypt
+      - delta:
+          requires:
+            - detach_sphere_user
+      - llbBlock:
+          requires:
+            - detach_sphere_user
+      - hotfix-2413:
+          requires:
+            - llbBlock
